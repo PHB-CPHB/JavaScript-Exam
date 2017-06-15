@@ -1,8 +1,11 @@
 # Period-1 Vanilla JavaScript, es2015 ->, Node.js and Babel + Webpack
 ## Note: This description is too big for a single exam-question. It will be divided up into several questions for the exam
 ### Explain and Reflect:
+
 ####	Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
+
 ####	Explain the two strategies for improving JavaScript: ES6 (es2005) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
+
 ####	Explain generally about node.js, and when it “makes sense” and npm, and how it “fits” into the node echo system.
 ####	Explain about the Event Loop in Node.js
 ####	Explain (some) of the purposes with the tools Babel and WebPack, using a simple proof of concept example
