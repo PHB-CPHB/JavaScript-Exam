@@ -65,20 +65,20 @@ Node.js is an event based, asynchronous I/O server side platform that runs on Go
 
 ###### Pros & Cons
 
-####### Pros:
+###### Pros:
 
 - Asynchronous event driven I/O helps concurrent request handling.
 - Provides the possibility to use the same language on both the server and client side.
 - Allows you to use NPM - the Node Package Manager.
 - Has an activate and vibrant community, with lots of free-to-use open source modules.
 
-####### Cons:
+###### Cons:
 
 - Dealing with relational databases are a pain.
 - Nested callbacks can create confusion.
 - Requires understanding of somewhat advanced JavaScript.
 - Not suited for CPU-intensive tasks.
-####### NPM
+###### NPM
 
 NPM is a package manager for Node.js with hundreds of thousands of packages, which you can include in your Node.js based projects. Using NPM can really speed up the process when building applications in Node.js. NPM allows Node.js to be lightweight, because you only include the features that you need, thus avoiding a bloated server side platform.
 
@@ -140,7 +140,7 @@ Strict Mode is a new feature in ECMAScript 5 that allows you to place a program,
 At runtime the compiler will move variable declarations and function declarations to the top of the document.
 - Example 1:
 The javascript engine will automatically hoist the function declaration to the top:
-javascript
+´´´javascript
 foo(); 
 function foo(){} 
 ´´´
