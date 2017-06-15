@@ -31,3 +31,5 @@
  - Props are set by the parent and is fixed throughout the lifetime of the component.
  - State is something you can store for later use.
  - State can be changed by setState, which will update the page.
+ 
+## Explain, using an example. about MobX and the benefits a library like this, brings to a react-application.
