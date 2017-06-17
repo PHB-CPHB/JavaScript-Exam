@@ -1,33 +1,28 @@
 # Period-1 Vanilla JavaScript, es2015 ->, Node.js and Babel + Webpack
-## Note: This description is too big for a single exam-question. It will be divided up into several questions for the exam
-## Explain and Reflect:
+    ## Note: This description is too big for a single exam-question. It will be divided up into several questions for the exam
+    ## Explain and Reflect:
 
-###	Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
+    ###	Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
 
-- Java is an OOP programming language while Java Script is a scripting language.
-    - Java is a Object-oriented programming language (OOP) is a programming language that works with "objects", "methodes in the objects". 
-        - It needs to be compiled in order for it to work. In Java "most" errors will be compile-time.
-        - It runs on a virtual machine or in the browser.
+    - Java is an OOP programming language while Java Script is a scripting language.
+        - Java is a Object-oriented programming language (OOP) is a programming language that works with "objects", "methodes in the objects". 
+            - It needs to be compiled in order for it to work. In Java "most" errors will be compile-time.
+            - It runs on a virtual machine or in the browser.
+            - Java is a statically typed language (We need to set variables (Int, String....)).
+            - Java is class-based (Make methode in the class, can be use on the object everywhere).
+            - Java constructors are special functions that can only be called at object creation.
 
-    - JavaScript is scripting or script language which is a programming language that supports scripts.
-        - In JavaScript we do not focus on classes but make functions.
-        - It is not compiled and therefor the errors will come in run-time.
-        - It manly runs on the browser.
+        - JavaScript is scripting or script language which is a programming language that supports scripts.
+            - In JavaScript we do not focus on classes but make functions.
+            - It is not compiled and therefor the errors will come in run-time.
+            - It manly runs on the browser.
+            - JavaScript is dynamic(We dont need to set variables).
+            - JavaScript is prototype-based (Make a function and put it on a prototype.
+            - JavaScript "constructors" are just standard functions.
 
-Because of this, it would be mostly handy to use an IDE for OOP programming, while a simple editor like VSCode is best for the scripting programming.
+    ###	Explain the two strategies for improving JavaScript: ES6 (es2005) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
 
-- Java is a statically typed language; JavaScript is dynamic.
-- Java is class-based; JavaScript is prototype-based.
-- Java constructors are special functions that can only be called at object creation; JavaScript "constructors" are just standard functions
-Both of the languages have their constructors with a capital letter.
-
-- Java requires all non-block statements to end with a semicolon; JavaScript inserts semicolons at the ends of certain lines.
-- Java uses block-based scoping; JavaScript uses function-based scoping like callbacks.
-- Java has an implicit this scope for non-static methods, and implicit class scope; JavaScript has implicit global scope.
-
-###	Explain the two strategies for improving JavaScript: ES6 (es2005) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
-
-#### JavaScript: ES6(es2015) + ES7:
+    #### JavaScript: ES6(es2015) + ES7:
 
 - The natural evolution of JavaScript, bringing features like arrow functions, Classes and Inheritance, promises, Generators and much more.
 
