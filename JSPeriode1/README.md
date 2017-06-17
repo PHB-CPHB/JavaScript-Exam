@@ -106,49 +106,35 @@ foo();
 function foo(){} 
 ```
 - This is what it is going to look like at runtime:
-    - Example 2:
-        - Only the declaration is hoisted, and not the assignment:
-        - This is what it is going to look like at runtime:
+ ```javascript
+ function foo()\{}
+foo();
+ ```
 
-- [this] in JavaScript and how it differs from what we know from Java/.net.
+- **this** in JavaScript and how it differs from what we know from Java/.net.
 
-    - A function's this keyword behaves a little differently in JavaScript compared to other languages. In most cases, the value of this is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
-
-    - Example 1 (Global Context):
-
-        - In the global execution context (outside of any function), this refers to the global object, whether in strict mode or not.
-```javascript
-console.log(this.document === document); // true
-
-// In web browsers, the window object is also the global object:
-console.log(this === window); // true
-
-this.a = 37;
-console.log(window.a); // 37
-```
+    - Depending of where you use **this**. It means referes to diffent itmes.
+        - In a named function **this** will refer to the function itself.
+        - In a browser **this** will refer to the window.
 
 - Function Closures and the JavaScript Module Pattern
 
     - When using function closures, the idea is often to make a function available inside a particular scope only.
 
     - Example (Closure):
-
-        - Here we assign the value of scope to "I am global" in the global scope, and "I am just a local" in the scope of getScope()
 ```javascript
     var scope = "I am global";
     function getScope() {
-        var scope = "I am just a local";
+        var scope = "I am local";
         return scope;
     }
-    console.log(getScope());
-    console.log(scope);
+    console.log(getScope()); // I am local
+    console.log(scope); // I am global
 ```
 - Example (JavaScript Module Pattern):
 
-    - Here we create a module that can return a greet to a certain person with the greet() function, by passing in the name:
 ```javascript
     function greeter(name) {
-        var name = name;
 
         return {
             greet: function() {
@@ -157,38 +143,46 @@ console.log(window.a); // 37
         }
     }
 
-    console.log(greeter("Emil").greet());
+    console.log(greeter("Kasper").greet()); // Hi Kasper
 ```
 
 - Immediately-Invoked Function Expressions (IIFE)
 
     - An immediately invoked function is a function that is called immediately after it is declared.
     - Example 1:
-        - WordPress disables the use of $ for sequrity reasons when working with jQuery.:
 ```javascript
-(function($) {
+var v, getValue;
 
-  $(document).ready(function() { });
-  
-})(jQuery);
+v = 1;
+getValue = (function (x) {
+    return function () {return x;};
+})(v);
+v = 2;
+
+getValue(); // 1
 ```
-You can also use it as a shorter way of writing consolidated code, and immediately executing it.
 
 - JavaScripts Prototype
 
-    - Every JavaScript object has a prototype. The prototype is also an object. All JavaScript objects inherit their properties and methods from their prototype.
+    - Every JavaScript object has a prototype. 
+    - The prototype is also an object. 
+    - All JavaScript objects inherit their properties and methods from their prototype.
+    - Example (Creating a prototype):
 ```javascript
-Example (Creating a prototype):
-
   function Person(firstName, lastName, age) {
-    this.firstName = first;
-    this.lastName = last;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.age = age;
   }
   
-  var person1 = new Person("Luke", "Skywalker", 26);
-  var person2 = new Person("Darth", "Vader", 48);
-  var person3 = new Person("Master", "Yoda", 900);
+  var Kasper = new Person("Kasper", "Vetter", 24);
+
+  Person.prototype.nationality = "Danish";
+
+  var Phillip = new Person("Phillip", "Brink", "25");
+
+  Phillip.nationality; // "Danish"
+  Kasper.nationality; // "Danish"
 ```
 
 - User defined Callback Functions
