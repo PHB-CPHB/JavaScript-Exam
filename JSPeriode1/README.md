@@ -24,8 +24,8 @@
 - JavaScript: ES6(es2005) + ES7:
     - ES6 + ES7 introduces new features arrow functions, Classes and Inheritance, promises, Generators and much more.
     - ES6 + ES7 is usable in all browser that support it, while older browsers needs Babel to convert it to ES5
-    - Example of JavaScript
-        - In JavaScript we cant define the variables which means that "message" could be anything. Furthermore we dont know what the greet function returns.
+Example of JavaScript
+In JavaScript we cant define the variables which means that "message" could be anything. Furthermore we dont know what the greet function returns.
 ```javascript
 var Greeter = (function () {
     function Greeter(message) {
@@ -40,8 +40,8 @@ var Greeter = (function () {
 - Typescript:
     - Can be used with NodeJS with a typescript compiler, which would be node.js.
     - Can (obviously) be used in all browsers when compiled into ES5
-    - Exsample of TypeScript
-        - In TypeScript we are more strict and have the ability to use types (greeting: string;) here we have defined what we want and in TypeScript it would determind that the methode greet returns a "string".
+Exsample of TypeScript
+In TypeScript we are more strict and have the ability to use types (greeting: string;) here we have defined what we want and in TypeScript it would determind that the methode greet returns a "string".
 ```typescript
 class Greeter {
     greeting: string;
@@ -99,13 +99,13 @@ We make a request which calls another system with a callback, which means when t
 
 - Variable/function-Hoisting
     - At runtime the compiler will move variable declarations and function declarations to the top of the document.
-    - Example 1:
+Example 1:
         - The javascript engine will automatically hoist the function declaration to the top:
 ```javascript
 foo(); 
 function foo(){} 
 ```
-- This is what it is going to look like at runtime:
+This is what it is going to look like at runtime:
  ```javascript
  function foo()\{}
 foo();
@@ -121,7 +121,7 @@ foo();
 
     - When using function closures, the idea is often to make a function available inside a particular scope only.
 
-    - Example (Closure):
+Example (Closure):
 ```javascript
     var scope = "I am global";
     function getScope() {
@@ -131,7 +131,7 @@ foo();
     console.log(getScope()); // I am local
     console.log(scope); // I am global
 ```
-- Example (JavaScript Module Pattern):
+Example (JavaScript Module Pattern):
 
 ```javascript
     function greeter(name) {
@@ -149,7 +149,7 @@ foo();
 - Immediately-Invoked Function Expressions (IIFE)
 
     - An immediately invoked function is a function that is called immediately after it is declared.
-    - Example 1:
+Example 1:
 ```javascript
 var v, getValue;
 
@@ -167,7 +167,7 @@ getValue(); // 1
     - Every JavaScript object has a prototype. 
     - The prototype is also an object. 
     - All JavaScript objects inherit their properties and methods from their prototype.
-    - Example (Creating a prototype):
+Example (Creating a prototype):
 ```javascript
   function Person(firstName, lastName, age) {
     this.firstName = firstName;
@@ -190,8 +190,8 @@ getValue(); // 1
     - In JavaScript, functions are high-order functions.
         - They can be used as arguments and returned form functions.
 
-    - Example 1 (Filter):
-        - Creates a new array including elements where the callback function returns a number and omits the ones where it returns false.
+Example 1 (Filter):
+Creates a new array including elements where the callback function returns a number and omits the ones where it returns false.
 ```javascript
   var numbers = [0,1,2,3,4,5,6,7,8,9];
   
@@ -201,8 +201,8 @@ getValue(); // 1
         return number;
   });
 ```
-- Example 2 (Map):
-- Creates a new array with the values modified by the callback function
+Example 2 (Map):
+Creates a new array with the values modified by the callback function
 ```javascript
   var numbers = [0,1,2,3,4,5,6,7,8,9];
   
@@ -244,7 +244,7 @@ This creates a reusable module for a person.
     module.exports = Person;
 ```
 
-- Here you use the reusable module in main.js
+Here you use the reusable module in main.js
 
 ```javascript
     var Person = require('person.js');
@@ -258,7 +258,7 @@ This creates a reusable module for a person.
 - Let
 
     - Let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used. This is unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
-    - Example on let compared to var:
+Example on let compared to var:
 ```javascript
 function varTest() {
   var x = 1;
@@ -281,7 +281,7 @@ function letTest() {
 - Arrow functions
 
     - An arrow function expression has a shorter syntax than a function expression and does not bind its own this, arguments, super, or new.target. Arrow functions are always anonymous. These function expressions are best suited for non-method functions, and they cannot be used as constructors.
-    - Example on an arrow function being able to shorten the function, which is very handy:
+Example on an arrow function being able to shorten the function, which is very handy:
 ```javascript
 var materials = [
   'Hydrogen',
@@ -302,13 +302,13 @@ var materialsLength3 = materials.map(material => material.length);
 
 console.log(materialsLength1) // [8, 6, 7, 9] All 3 returns the same
 ```
-#### This
+- This
+    - 
+    - In most cases, the value of this is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind method to set the value of a function's this regardless of how it's called, and ES6 introduced arrow functions whose this is scoped (This means that arrow functions sets this itself).
 
-- In most cases, the value of this is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind method to set the value of a function's this regardless of how it's called, and ES6 introduced arrow functions whose this is lexically scoped (it is set to the this value of the enclosing execution context).
+    - In the global execution context (outside of any function), this refers to the global object, whether in strict mode or not.
 
-- In the global execution context (outside of any function), this refers to the global object, whether in strict mode or not.
-
-###### Global execution example:
+Global execution example:
 ```javascript
 console.log(this.document === document); // true
 
@@ -318,8 +318,7 @@ console.log(this === window); // true
 this.a = 37;
 console.log(window.a); // 37
 ```
-- in a function context, the value of this depends on how the function is called.
-Since the following code is not in strict mode, and because the value of this is not set by the call, this will default to the global object:
+in a function context, the value of this depends on how the function is called. Since the following code is not in strict mode, and because the value of this is not set by the call, this will default to the global object:
 ```javascript
 function f1() {
   return this;
@@ -341,38 +340,36 @@ f2() === undefined;
 ```
 So, in strict mode, if this was not defined by the execution context, it remains undefined.
 
-#### Rest parameters
+- Rest parameters
 
-- The rest parameter syntax allows us to represent an indefinite number of arguments as an array.
-- If the last named argument of a function is prefixed with ..., it becomes an array whose elements from 0 (inclusive) to theArgs.length (exclusive) are supplied by the actual arguments passed to the function.
-#### Example:
+    - The rest parameter syntax allows us to represent an indefinite number of arguments as an array.
+    - If the last named argument of a function is prefixed with ..., it becomes an array. Which contains the actually arguments pass to the function
+    - Example:
 ```javascript
-// Before rest parameters, the following could be found:
-function f(a, b) {
-  var args = Array.prototype.slice.call(arguments, f.length);
-
-  // …
+function fun1(...theArgs) {
+  console.log(theArgs.length);
 }
 
-// to be equivalent of
-
-function f(a, b, ...args) {
-  
+function fun2(n, ...kasper) {
+    console.log(n, kasper.length)
 }
+fun1();  // 0
+fun1(5); // 1
+fun1(5, 6, 7); // 3
+fun2("Kasper",3,3,3,3,3) // Kasper 5
 ```
-Simply sets the argument array at the end.
 
-#### Destructuring assignment
+- Destructuring assignment
 
-- The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects into distinct variables.
-###### Example, destructuring of data from a list:
+    - The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects into distinct variables.
+Example, destructuring of data from a list:
 ```javascript
 var x = [1, 2, 3, 4, 5];
 var [y, z] = x;
 console.log(y); // 1
 console.log(z); // 2
 ```
-###### Example, destructuring of data from an array:
+Example, destructuring of data from an array:
 ```javascript
 var foo = ['one', 'two', 'three'];
 
@@ -380,11 +377,11 @@ var [one, two, three] = foo;
 console.log(one); // "one"
 console.log(two); // "two"
 console.log(three); // "three"
-Map
 ```
-- The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key or a value.
-- A Map object iterates its elements in insertion order — a for...of loop returns an array of [key, value] for each iteration.
-- It should be noted that a Map that is a map of an object, especially a dictionary of dictionaries, will only map to the object's insertion order -- which is random and not ordered.
+- Map
+    - The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key or a value.
+    - A Map object iterates its elements in insertion order — a for...of loop returns an array of [key, value] for each iteration.
+    - It should be noted that a Map that is a map of an object, especially a dictionary of dictionaries, will only map to the object's insertion order -- which is random and not ordered.
 ###### Example, using the map object:
 ```javascript
 var myMap = new Map();
