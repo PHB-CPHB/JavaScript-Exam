@@ -1,4 +1,4 @@
-# Period-1 Vanilla JavaScript, es2015 ->, Node.js and Babel + Webpack
+# Period-1 Vanilla JavaScript, es2005 ->, Node.js and Babel + Webpack
 ## Note: This description is too big for a single exam-question. It will be divided up into several questions for the exam
 ## Explain and Reflect:
 
@@ -20,8 +20,8 @@
         - JavaScript is prototype-based (Make a function and put it on a prototype.
         - JavaScript "constructors" are just standard functions.
 
-###	Explain the two strategies for improving JavaScript: ES6 (es2015) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
-- JavaScript: ES6(es2015) + ES7:
+###	Explain the two strategies for improving JavaScript: ES6 (es2005) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
+- JavaScript: ES6(es2005) + ES7:
     - ES6 + ES7 introduces new features arrow functions, Classes and Inheritance, promises, Generators and much more.
     - ES6 + ES7 is usable in all browser that support it, while older browsers needs Babel to convert it to ES5
     - Example of JavaScript
@@ -187,7 +187,8 @@ getValue(); // 1
 
 - User defined Callback Functions
 
-    - In JavaScript, functions are first-class objects; that is, functions are of the type Object and they can be used in a first-class manner like any other object (String, Array, Number, etc.) since they are in fact objects themselves. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions.
+    - In JavaScript, functions are high-order functions.
+        - They can be used as arguments and returned form functions.
 
     - Example 1 (Filter):
         - Creates a new array including elements where the callback function returns a number and omits the ones where it returns false.
@@ -210,47 +211,9 @@ getValue(); // 1
       return number++;
   });
 ```
-- Example 3 (Custom function):
-```javascript
-  var names = ["Luke Skywalker", "Darth Vader", "Obi-Wan"];
-  
-  function sayHi(name) {
-    console.log('Hi ' + name);
-  }
-  
-  (function(arr) {
-    arr.forEach(function(name) {
-      sayHi(name);
-    });
-  })(names);
-```
 - E.
 
     - The E property returns the Euler's number and the base of natural logarithms, approximately 2.718.
-```html
-<html>
-<body>
-
-<p>Click the button to display Euler's number.</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = Math.E;
-}
-</script>
-
-</body>
-</html>
-```
-- output
-
-        Click the button to display Euler's number.
-        Try it <-- button
-        2.718281828459045
 
 ###	Provide examples of user defined reusable modules implemented in Node.js
 
@@ -280,20 +243,21 @@ This creates a reusable module for a person.
 
     module.exports = Person;
 ```
-Here you use the reusable module in main.js
+
+- Here you use the reusable module in main.js
+
 ```javascript
     var Person = require('person.js');
-    var person1 = Person("Luke Skywalker", 26);
-    console.log(person1.getInfo);
+    var Kasper = Person("Kasper", 24);
+    console.log(Kasper.getInfo()); // {name: "Kasper", age: 24} 
 ```
-## es2005 -->
-### Provide examples and explain the es2005 features: let, arrow functions, this, rest parameters, de-structuring assignments, maps/sets etc.
+## ES5 -->
 
-#### Let
+### Provide examples and explain the es2015 features: let, arrow functions, this, rest parameters, de-structuring assignments, maps/sets etc.
 
-- Let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used. This is unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
+- Let
 
-- Variables declared by let have as their scope the block in which they are defined, as well as in any contained sub-blocks . In this way, let works very much like var. The main difference is that the scope of a var variable is the entire enclosing function.
+    - Let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used. This is unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
 
 ###### Example on let compared to var:
 ```javascript
@@ -447,14 +411,14 @@ myMap.get({});           // undefined, because keyObj !== {}
 myMap.get(function() {}) // undefined, because keyFunc !== function () {}
 ```
 
-###	Explain and demonstrate how es2015 supports modules (import and export) similar to what is offered by NodeJS.
+###	Explain and demonstrate how es2005 supports modules (import and export) similar to what is offered by NodeJS.
 
 - Javascript did not use to have built-in modules but the javascript community came up with work-arounds which made it possible to get modules.
 - Two of these work-around standards are commonJS modules with node.js modules as implementation and Asynchronous Module Definition (AMD) with requireJS as implementation.
 - CommonJS(Node.js) makes it possible to compact syntax, it is designed for synchronous loading and where it's main use is on the server.
 - Asynchronous Module Definition(requireJS) makes a slightly more complicated syntax, enabling AMD to work without eval() (or a compilation step), it's designed for asynchronous loading and it's main use are in the browsers.
 - ES6 uses both commonjs and AMD
-Es2015 module import and export example:
+Es2005 module import and export example:
 ###### Export.
 ```javascript
 //------ lib.js ------
