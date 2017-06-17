@@ -75,7 +75,7 @@ class Greeter {
 ###	Explain about the Event Loop in Node.js
 
 - Event Look is handled with callbacks, and the browers handles the async call.
-![alt text](http://github.com/philliphb/JavaScript-Exam/JSPeriode1/EventLoop.png)
+![Event Loop](https://github.com/philliphb/JavaScript-Exam/blob/master/JSPeriode1/EventLoop.png)
 We make a request which calls another system with a callback, which means when the operation is done and the other systems returnes. The answer will be put back in the event loop, where it will be handled and given back to use when node is ready.
 
 ###	Explain (some) of the purposes with the tools Babel and WebPack, using a simple proof of concept example
