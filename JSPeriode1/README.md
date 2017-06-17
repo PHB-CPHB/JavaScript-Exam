@@ -5,9 +5,16 @@
 ###	Explain differences between Java and JavaScript. You should include both topics related to the fact that Java is a compiled language and JavaScript a scripted language, and general differences in language features.
 
 - Java is an OOP programming language while Java Script is a scripting language.
-Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods.
+* Java is a Object-oriented programming language (OOP) is a programming language that works with "objects", "methodes in the objects". 
+- It needs to be compiled in order for it to work. In Java "most" errors will be compile-time.
+- It runs on a virtual machine or in the browser.
 
-A scripting or script language is a programming language that supports scripts; programs written for a special run-time environment that automate the execution of tasks that could alternatively be executed one-by-one by a human operator.
+* JavaScript is scripting or script language which is a programming language that supports scripts.
+- In JavaScript we do not focus on classes but make functions.
+- It is not compiled and therefor the errors will come in run-time.
+- It manly runs on the browser.
+
+programs written for a special run-time environment that automate the execution of tasks that could alternatively be executed one-by-one by a human operator.
 
 - Java creates applications that run in a virtual machine or browser while JavaScript code is run on a browser only.
 Because of this, it would be mostly handy to use an IDE for OOP programming, while a simple editor like VSCode is best for the scripting programming.
