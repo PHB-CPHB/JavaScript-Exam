@@ -20,141 +20,103 @@
         - JavaScript is prototype-based (Make a function and put it on a prototype.
         - JavaScript "constructors" are just standard functions.
 
-###	Explain the two strategies for improving JavaScript: ES6 (es2005) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
-
-#### JavaScript: ES6(es2015) + ES7:
-
-- The natural evolution of JavaScript, bringing features like arrow functions, Classes and Inheritance, promises, Generators and much more.
-
-- Can be used in "all" browsers using a polyfil or a transpiler
-
-- Can be used with NodeJS (almost) out of the box with LTS v6.x(Long Term Support stream), otherwise via a transpiler (Babel)
-
-- Babel is a essentially an ECMAScript 6 to ECMAScript 5 compiler. It allows you to use ES6 features in your projects and then compiles ES5 for you to use in production.
-
-- Available out of the box with newer versions of ReactJS
-#### Typescript:
-
-- A free open source language, developed and maintained by Microsoft. It is a strict superset of JavaScript, and adds optional static typing and many of the features from es2015 and es2016
-
-- Can (obviously) be used in all browsers when compiled into ES5
-
-- Can be used with NodeJS with a typescript compiler, which would be node.js or git.
-
-- Angular 2 is designed to be written with TypeScript (but can also be used with ES 5 and es 2015)
+###	Explain the two strategies for improving JavaScript: ES6 (es2015) + ES7, versus Typescript. What does it require to use these technologies: In our backend with Node, in (many different) Browsers
+- JavaScript: ES6(es2015) + ES7:
+    - ES6 + ES7 introduces new features arrow functions, Classes and Inheritance, promises, Generators and much more.
+    - ES6 + ES7 is usable in all browser that support it, while older browsers needs Babel to convert it to ES5
+    - Example of JavaScript
+        - In JavaScript we cant define the variables which means that "message" could be anything. Furthermore we dont know what the greet function returns.
+```javascript
+var Greeter = (function () {
+    function Greeter(message) {
+        this.greeting = message;
+    }
+    Greeter.prototype.greet = () -> {
+        return "Hello, " + this.greeting;
+    };
+    return Greeter;
+})();
+```
+- Typescript:
+    - Can be used with NodeJS with a typescript compiler, which would be node.js.
+    - Can (obviously) be used in all browsers when compiled into ES5
+    - Exsample of TypeScript
+        - In TypeScript we are more strict and have the ability to use types (greeting: string;) here we have defined what we want and in TypeScript it would determind that the methode greet returns a "string".
+```typescript
+class Greeter {
+    greeting: string;
+    constructor (message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+} 
+``` 
 
 ###	Explain generally about node.js, and when it “makes sense” and npm, and how it “fits” into the node echo system.
+- Node.js:
+    - Node.js is an event based, asynchronous I/O server side platform that runs on Google's V8 JavaScript Engine for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
 
-#### Node.js:
+    - What it's NOT
+        - Node.js is not a JavaScript framework.
+        - Node.js is not multi-threaded. It runs in a single thread with callback concept.
 
-Node.js is an event based, asynchronous I/O server side platform that runs on Google's V8 JavaScript Engine for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+    - What it IS:
+        - Node.js is a server side platform which can execute JavaScript.
+        - Node.js is an open source platform to make real time network applications
+        - Node.js provides asynchronous, event driven I/O APIs.
+        - Node.js runs a single threaded event based loop, so all executions become non-blocking.
 
-##### What it's NOT
+- NPM
 
-- Node.js is not a JavaScript framework.
-- Node.js' V8 wrappers are not made in JavaScript but C.
-- Node.js is not multi-threaded. It runs in a single thread with callback concept.
-
-##### What it IS:
-
-- Node.js is a server side platform which can execute JavaScript.
-- Node.js is an open source platform to make real time network applications
-- Node.js provides asynchronous, event driven I/O APIs.
-- Node.js runs a single threaded event based loop, so all executions become non-blocking.
-
-##### Pros & Cons
-
-###### Pros:
-
-- Asynchronous event driven I/O helps concurrent request handling.
-- Provides the possibility to use the same language on both the server and client side.
-- Allows you to use NPM - the Node Package Manager.
-- Has an activate and vibrant community, with lots of free-to-use open source modules.
-
-###### Cons:
-
-- Dealing with relational databases are a pain.
-- Nested callbacks can create confusion.
-- Requires understanding of somewhat advanced JavaScript.
-- Not suited for CPU-intensive tasks.
-##### NPM
-
-NPM is a package manager for Node.js with hundreds of thousands of packages, which you can include in your Node.js based projects. Using NPM can really speed up the process when building applications in Node.js. NPM allows Node.js to be lightweight, because you only include the features that you need, thus avoiding a bloated server side platform.
+    - NPM is a package manager for Node.js, which handles the packages dependencies.
 
 ###	Explain about the Event Loop in Node.js
 
-- When you read from a file, the calling thread blocks
-- When you read from a network stream, the calling thread blocks
-- Basically, when you do any IO, the calling thread block until the IO operation is done
-- Threads were necessary to solve these blocking problems, with all the problems that comes with threads
-- Node is using non-threaded, event driven model to create a non-blocking API as visualized in this figure 
+- Event Look is handled with callbacks, and the browers handles the async call.
 ![alt text](http://github.com/philliphb/JavaScript-Exam/JSPeriode1/EventLoop.png)
-In computer science, the event loop, message dispatcher, message loop, message pump, or run loop is a programming construct that waits for and dispatches events or messages in a program. It works by making a request to some internal or external "event provider" (that generally blocks the request until an event has arrived), and then it calls the relevant event handler ("dispatches the event")
+We make a request which calls another system with a callback, which means when the operation is done and the other systems returnes. The answer will be put back in the event loop, where it will be handled and given back to use when node is ready.
 
 ###	Explain (some) of the purposes with the tools Babel and WebPack, using a simple proof of concept example
 
-- Babel is essentially an ECMAScript 6 to ECMAScript 5 compiler. It allows you to use ES6 features in your projects and then compiles ES5 for you to use in production.
+- Babel
+    - Babel is an ECMAScript 6 to ECMAScript 5 compiler. It allows you to use ES6 features in your projects and then compiles ES5 for you to use in production.
 
-- Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. good Webpack notes
-
-- Bundles ES Modules, CommonJS and AMD modules (even combined).
-
-- Can create a single bundle or multiple chunks that are asynchronously loaded at runtime (to reduce initial loading time).
-
-- Dependencies are resolved during compilation, reducing the runtime size.
-
-- Loaders can preprocess files while compiling, e.g. TypeScript to JavaScript, Handlebars strings to compiled functions, images to Base64, etc.
-
-- Highly modular plugin system to do whatever else your application requires.
-
-###### Exampel
-
-- index.html
-show our html code with javascript support.
-
-- main.js
-our javascript code.
-
-- Webpack.config.js
-This file exports our project's webpack configuration object.
-
-- main.css
-this makes the title red.
-
-- bundle.js
-After running this command(Webpack -p), all our bundles will be minified, as you can see.
+- Webpack
+    - Webpack is a bundler for modules.
+    - Can take multiple files and bundles into one file.
+    - Refactors long variable names into shot. Example (this_is_a_Super_long_name -> a36)
+    - Exampel we have a project Webpack EXE. Where we have bundled all the files. using Webpack -p command.
 
 ###	Explain the purpose of “use strict” and also Linters, exemplified with ESLint 
 
-Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a "strict" operating context. This strict context prevents certain actions from being taken and throws more exceptions. Strict mode helps out in a couple ways:
-
-- It catches some common coding bloopers, throwing exceptions.
-- It prevents, or throws errors, when relatively "unsafe" actions are taken (such as gaining access - to the global object).
-- It disables features that are confusing or poorly thought out.
-
+- Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a "strict" operating context. This strict context prevents certain actions from being taken and throws more exceptions.      - Strict mode helps out in a couple ways:
+        - It catches some common coding bloopers, throwing exceptions.
+        - It prevents, or throws errors, when relatively "unsafe" actions are taken (such as gaining access - to the global object).
 
 ### Explain using sufficient code examples the following features in JavaScript. 
 
-###	Variable/function-Hoisting
-At runtime the compiler will move variable declarations and function declarations to the top of the document.
-- Example 1:
-The javascript engine will automatically hoist the function declaration to the top:
+- Variable/function-Hoisting
+    - At runtime the compiler will move variable declarations and function declarations to the top of the document.
+    - Example 1:
+        - The javascript engine will automatically hoist the function declaration to the top:
 ```javascript
 foo(); 
 function foo(){} 
 ```
-This is what it is going to look like at runtime:
-- Example 2:
-Only the declaration is hoisted, and not the assignment:
-This is what it is going to look like at runtime:
+- This is what it is going to look like at runtime:
+    - Example 2:
+        - Only the declaration is hoisted, and not the assignment:
+        - This is what it is going to look like at runtime:
 
-###	[this] in JavaScript and how it differs from what we know from Java/.net.
+- [this] in JavaScript and how it differs from what we know from Java/.net.
 
-A function's this keyword behaves a little differently in JavaScript compared to other languages. In most cases, the value of this is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
+    - A function's this keyword behaves a little differently in JavaScript compared to other languages. In most cases, the value of this is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
-###### Example 1 (Global Context):
+    - Example 1 (Global Context):
 
-In the global execution context (outside of any function), this refers to the global object, whether in strict mode or not.
+        - In the global execution context (outside of any function), this refers to the global object, whether in strict mode or not.
 ```javascript
 console.log(this.document === document); // true
 
@@ -165,13 +127,13 @@ this.a = 37;
 console.log(window.a); // 37
 ```
 
-###	Function Closures and the JavaScript Module Pattern
+- Function Closures and the JavaScript Module Pattern
 
-When using function closures, the idea is often to make a function available inside a particular scope only.
+    - When using function closures, the idea is often to make a function available inside a particular scope only.
 
-###### Example (Closure):
+    - Example (Closure):
 
-Here we assign the value of scope to "I am global" in the global scope, and "I am just a local" in the scope of getScope()
+        - Here we assign the value of scope to "I am global" in the global scope, and "I am just a local" in the scope of getScope()
 ```javascript
     var scope = "I am global";
     function getScope() {
@@ -181,9 +143,9 @@ Here we assign the value of scope to "I am global" in the global scope, and "I a
     console.log(getScope());
     console.log(scope);
 ```
-###### Example (JavaScript Module Pattern):
+- Example (JavaScript Module Pattern):
 
-Here we create a module that can return a greet to a certain person with the greet() function, by passing in the name:
+    - Here we create a module that can return a greet to a certain person with the greet() function, by passing in the name:
 ```javascript
     function greeter(name) {
         var name = name;
@@ -198,13 +160,11 @@ Here we create a module that can return a greet to a certain person with the gre
     console.log(greeter("Emil").greet());
 ```
 
-###	Immediately-Invoked Function Expressions (IIFE)
+- Immediately-Invoked Function Expressions (IIFE)
 
-An immediately invoked function is a function that is called immediately after it is declared.
-
-Example 1:
-
-WordPress disables the use of $ for sequrity reasons when working with jQuery.:
+    - An immediately invoked function is a function that is called immediately after it is declared.
+    - Example 1:
+        - WordPress disables the use of $ for sequrity reasons when working with jQuery.:
 ```javascript
 (function($) {
 
@@ -214,9 +174,9 @@ WordPress disables the use of $ for sequrity reasons when working with jQuery.:
 ```
 You can also use it as a shorter way of writing consolidated code, and immediately executing it.
 
-###	JavaScripts Prototype
+- JavaScripts Prototype
 
-Every JavaScript object has a prototype. The prototype is also an object. All JavaScript objects inherit their properties and methods from their prototype.
+    - Every JavaScript object has a prototype. The prototype is also an object. All JavaScript objects inherit their properties and methods from their prototype.
 ```javascript
 Example (Creating a prototype):
 
@@ -231,13 +191,12 @@ Example (Creating a prototype):
   var person3 = new Person("Master", "Yoda", 900);
 ```
 
-###	User defined Callback Functions
+- User defined Callback Functions
 
-In JavaScript, functions are first-class objects; that is, functions are of the type Object and they can be used in a first-class manner like any other object (String, Array, Number, etc.) since they are in fact objects themselves. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions.
+    - In JavaScript, functions are first-class objects; that is, functions are of the type Object and they can be used in a first-class manner like any other object (String, Array, Number, etc.) since they are in fact objects themselves. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions.
 
-Example 1 (Filter):
-
-Creates a new array including elements where the callback function returns a number and omits the ones where it returns false.
+    - Example 1 (Filter):
+        - Creates a new array including elements where the callback function returns a number and omits the ones where it returns false.
 ```javascript
   var numbers = [0,1,2,3,4,5,6,7,8,9];
   
@@ -247,8 +206,8 @@ Creates a new array including elements where the callback function returns a num
         return number;
   });
 ```
-###### Example 2 (Map):
-Creates a new array with the values modified by the callback function
+- Example 2 (Map):
+- Creates a new array with the values modified by the callback function
 ```javascript
   var numbers = [0,1,2,3,4,5,6,7,8,9];
   
@@ -257,7 +216,7 @@ Creates a new array with the values modified by the callback function
       return number++;
   });
 ```
-###### Example 3 (Custom function):
+- Example 3 (Custom function):
 ```javascript
   var names = ["Luke Skywalker", "Darth Vader", "Obi-Wan"];
   
@@ -271,9 +230,9 @@ Creates a new array with the values modified by the callback function
     });
   })(names);
 ```
-###	E.
+- E.
 
-The E property returns the Euler's number and the base of natural logarithms, approximately 2.718.
+    - The E property returns the Euler's number and the base of natural logarithms, approximately 2.718.
 ```html
 <html>
 <body>
@@ -293,11 +252,11 @@ function myFunction() {
 </body>
 </html>
 ```
-output
+- output
 
-Click the button to display Euler's number.
-Try it <-- button
-2.718281828459045
+        Click the button to display Euler's number.
+        Try it <-- button
+        2.718281828459045
 
 ###	Provide examples of user defined reusable modules implemented in Node.js
 
