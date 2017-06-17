@@ -258,8 +258,7 @@ This creates a reusable module for a person.
 - Let
 
     - Let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used. This is unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
-
-###### Example on let compared to var:
+    - Example on let compared to var:
 ```javascript
 function varTest() {
   var x = 1;
@@ -279,11 +278,10 @@ function letTest() {
   console.log(x);  // 1
 }
 ```
-#### Arrow functions
+- Arrow functions
 
-- An arrow function expression has a shorter syntax than a function expression and does not bind its own this, arguments, super, or new.target. Arrow functions are always anonymous. These function expressions are best suited for non-method functions, and they cannot be used as constructors.
-
-###### Example on an arrow function being able to shorten the function, which is very handy:
+    - An arrow function expression has a shorter syntax than a function expression and does not bind its own this, arguments, super, or new.target. Arrow functions are always anonymous. These function expressions are best suited for non-method functions, and they cannot be used as constructors.
+    - Example on an arrow function being able to shorten the function, which is very handy:
 ```javascript
 var materials = [
   'Hydrogen',
@@ -301,6 +299,8 @@ var materialsLength2 = materials.map((material) => {
 });
 
 var materialsLength3 = materials.map(material => material.length);
+
+console.log(materialsLength1) // [8, 6, 7, 9] All 3 returns the same
 ```
 #### This
 
