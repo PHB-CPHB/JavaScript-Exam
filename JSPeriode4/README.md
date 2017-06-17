@@ -1,7 +1,6 @@
 # Period-4 Hybrid App Development
 
-### Explain the concept of: Hybrid Mobile App Development
-[4.1](#Explain-the-concept-of:-Hybrid-Mobile-App-Development)
+[Explain the concept of: Hybrid Mobile App Development](#4-1)
 - Native Apps are specific to a given mobile platform (iOS or Android) using the development tools and language that the respective platform supports. Native apps look and perform the best
 - HTML5 Apps use standard web technologies, like JavaScript and CSS to create cross platform mobile applications. Limitations from this strategy is, session management, no secure offline storage, no access to native device functionality (camera, calendar etc.)
 - Hybrid Apps make it possible to embed HTML5 apps inside a thin native container, combining the best (and worst) elements of Native and HTML5 apps.
