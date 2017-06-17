@@ -437,7 +437,7 @@ Class definition.
 class Shape {
     constructor (id, x, y) {
         this.id = id
-        this.move(x, y)
+        this.move(x, y) // "this" refers to the class 
     }
     move (x, y) {
         this.x = x
@@ -461,5 +461,3 @@ class Circle extends Shape {
     }
 }
 ```
-Here is a clear example on how to inherit from another class.
-In my opinion it looks really similar to how you inherit in java, aka. the extends parents class.
