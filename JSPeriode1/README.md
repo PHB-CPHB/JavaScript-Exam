@@ -380,43 +380,37 @@ console.log(three); // "three"
 ```
 - Map
     - The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key or a value.
-    - A Map object iterates its elements in insertion order — a for...of loop returns an array of [key, value] for each iteration.
-    - It should be noted that a Map that is a map of an object, especially a dictionary of dictionaries, will only map to the object's insertion order -- which is random and not ordered.
-###### Example, using the map object:
+Example, using the map object:
 ```javascript
+// Map
 var myMap = new Map();
 
+// Variables
 var keyString = 'a string',
     keyObj = {},
     keyFunc = function() {};
 
 // setting the values
-myMap.set(keyString, "value associated with 'a string'");
-myMap.set(keyObj, 'value associated with keyObj');
-myMap.set(keyFunc, 'value associated with keyFunc');
+myMap.set(keyString, "Kasper");
+myMap.set(keyObj, 'Mikkel');
+myMap.set(keyFunc, 'Phillip');
 
 myMap.size; // 3
 
 // getting the values
-myMap.get(keyString);    // "value associated with 'a string'"
-myMap.get(keyObj);       // "value associated with keyObj"
-myMap.get(keyFunc);      // "value associated with keyFunc"
+myMap.get(keyString);    // "Kasper"
+myMap.get(keyObj);       // "Mikkel"
+myMap.get(keyFunc);      // "Phillip"
 
-myMap.get('a string');   // "value associated with 'a string'"
-                         // because keyString === 'a string'
+myMap.get('a string');   // "Kasper" - because keyString === 'a string'
 myMap.get({});           // undefined, because keyObj !== {}
 myMap.get(function() {}) // undefined, because keyFunc !== function () {}
 ```
 
-###	Explain and demonstrate how es2005 supports modules (import and export) similar to what is offered by NodeJS.
-
-- Javascript did not use to have built-in modules but the javascript community came up with work-arounds which made it possible to get modules.
-- Two of these work-around standards are commonJS modules with node.js modules as implementation and Asynchronous Module Definition (AMD) with requireJS as implementation.
-- CommonJS(Node.js) makes it possible to compact syntax, it is designed for synchronous loading and where it's main use is on the server.
-- Asynchronous Module Definition(requireJS) makes a slightly more complicated syntax, enabling AMD to work without eval() (or a compilation step), it's designed for asynchronous loading and it's main use are in the browsers.
-- ES6 uses both commonjs and AMD
+###	Explain and demonstrate how es2015 supports modules (import and export) similar to what is offered by NodeJS.
+- JavaScript has with ES5 Import and Export support.
 Es2005 module import and export example:
-###### Export.
+Export.
 ```javascript
 //------ lib.js ------
     export const sqrt = Math.sqrt;
@@ -427,7 +421,7 @@ Es2005 module import and export example:
         return sqrt(square(x) + square(y));
     }
 ```
-###### Import.
+Import.
 ```javascript
 //------ main.js ------
     import { square, diag } from 'lib';
