@@ -31,7 +31,7 @@ var Greeter = (function () {
     function Greeter(message) {
         this.greeting = message;
     }
-    Greeter.prototype.greet = () -> {
+    Greeter.prototype.greet = () => {
         return "Hello, " + this.greeting;
     };
     return Greeter;
@@ -134,7 +134,7 @@ Example (Closure):
 Example (JavaScript Module Pattern):
 
 ```javascript
-    function greeter(name) {
+    function Greetings(name) {
 
         return {
             greet: function() {
@@ -143,7 +143,7 @@ Example (JavaScript Module Pattern):
         }
     }
 
-    console.log(greeter("Kasper").greet()); // Hi Kasper
+    console.log(Greetings("Kasper").greet()); // Hi Kasper
 ```
 
 - Immediately-Invoked Function Expressions (IIFE)
@@ -217,7 +217,6 @@ Creates a new array with the values modified by the callback function
 
 ###	Provide examples of user defined reusable modules implemented in Node.js
 
-person.js
 
 This creates a reusable module for a person.
 ```javascript
