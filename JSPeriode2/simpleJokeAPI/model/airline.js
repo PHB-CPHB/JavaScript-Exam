@@ -6,11 +6,12 @@ function getAvailableTickets(airport,date,numbOfTickets,callback){
   var URL = 
     "http://angularairline-plaul.rhcloud.com/api/flightinfo/"+airport+"/"+isoDate+"/"+numbOfTickets;
   request(URL, function (error, response, body) {
+    console.log();
     if (!error && response.statusCode == 200) {
       return callback(null,JSON.parse(body));
     }
     else{
-      return callback(error,JSON.parse(body))
+      return callback(error, JSON.parse(body));
     }
   })
 }
